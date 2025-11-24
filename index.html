@@ -51,6 +51,51 @@
 
     footer{margin-top:24px;padding:16px 0;color:var(--muted);font-size:14px;border-top:1px solid #e6e9ef}
 
+    /* ----------------------------------------- */
+    /* 🌈 ORBS BACKGROUND ADDED (OPTION 2) */
+    /* ----------------------------------------- */
+
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.45;
+      z-index: -1;
+      animation: float 12s ease-in-out infinite;
+    }
+
+    .orb1 {
+      width: 320px;
+      height: 320px;
+      background: #a8d8ff;
+      top: -60px;
+      left: -60px;
+    }
+
+    .orb2 {
+      width: 260px;
+      height: 260px;
+      background: #d2ffe3;
+      bottom: -40px;
+      right: -40px;
+      animation-delay: 3s;
+    }
+
+    .orb3 {
+      width: 280px;
+      height: 280px;
+      background: #ffd9e8;
+      top: 40%;
+      left: 70%;
+      animation-delay: 6s;
+    }
+
+    @keyframes float {
+      0%   { transform: translate(0, 0); }
+      50%  { transform: translate(30px, -40px); }
+      100% { transform: translate(0, 0); }
+    }
+
     /* FULL MOBILE FIX */
     @media (max-width: 768px){
 
@@ -77,11 +122,23 @@
         grid-template-columns: 1fr !important;
       }
 
+      /* Reduce orb blur for performance on smaller screens */
+      .orb {
+        filter: blur(45px);
+        opacity: 0.35;
+      }
+
     }
   </style>
 </head>
 
 <body>
+
+  <!-- 🌈 ORBS HERE -->
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+
   <div class="container">
 
     <header>
@@ -192,3 +249,4 @@
 
 </body>
 </html>
+
