@@ -139,22 +139,21 @@
               <div class="two-cols">
                 <div>
                   <label for="service">Type of Service *</label>
-                  <select id="service" name="service" required>
-  <option value="Regular">Regular Cleaning</option>
-  <option value="Deep">Deep Cleaning</option>
-  <option value="Move">Move-In / Move-Out</option>
-  <option value="Airbnb">Airbnb Turnover</option>
-  <option value="Office">Small Office</option>
-  <option value="BigOffice">Big Office</option>
-  <option value="Other">Other</option>
-</select>
-
-                  
+                  <select id="service" name="service" required onchange="handleServiceChange()">
+                    <option value="Regular">Regular Cleaning</option>
+                    <option value="Deep">Deep Cleaning</option>
+                    <option value="Move">Move-In / Move-Out</option>
+                    <option value="Airbnb">Airbnb Turnover</option>
+                    <option value="Office">Small Office</option>
+                    <option value="BigOffice">Big Office</option>
+                    <option value="Other">Other</option>
+                  </select>
                 </div>
 
-                <div>
+                <!-- SIZE WRAPPER -->
+                <div id="size-wrapper">
                   <label for="size">Apartment Size *</label>
-                  <select id="size" name="size" required onchange="updatePrice()">
+                  <select id="size" name="size" onchange="updatePrice()">
                     <option value="Studio">Studio</option>
                     <option value="1BR">1 Bedroom</option>
                     <option value="2BR">2 Bedrooms</option>
@@ -163,7 +162,7 @@
                 </div>
               </div>
 
-              <!-- PRICE APPEARS HERE -->
+              <!-- DYNAMIC PRICE -->
               <div id="price-box" style="margin-top:4px;font-size:15px;font-weight:600;color:var(--accent);display:none;">
                 Estimated Price: <span id="price"></span>
               </div>
@@ -209,6 +208,20 @@
 
       document.getElementById('price').textContent = price;
       document.getElementById('price-box').style.display = "block";
+    }
+
+    function handleServiceChange() {
+      const service = document.getElementById('service').value;
+      const sizeWrapper = document.getElementById('size-wrapper');
+
+      const hideSize = ["Office", "BigOffice", "Other"];
+
+      if (hideSize.includes(service)) {
+        sizeWrapper.style.display = "none";
+        document.getElementById("price-box").style.display = "none";
+      } else {
+        sizeWrapper.style.display = "block";
+      }
     }
   </script>
 
