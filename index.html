@@ -14,41 +14,165 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    :root{--accent:#0b79d0;--dark:#111217;--muted:#6b7280;--bg:#f7fafc;--card:#ffffff;font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial}
+    :root{
+      --accent:#0b79d0;
+      --dark:#111217;
+      --muted:#6b7280;
+      --bg:#f7fafc;
+      --card:#ffffff;
+      font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial
+    }
     *{box-sizing:border-box}
     body{margin:0;background:var(--bg);color:var(--dark);line-height:1.45}
     .container{max-width:1000px;margin:0 auto;padding:32px}
 
-    header{display:flex;align-items:center;justify-content:space-between;padding:20px 0;border-bottom:1px solid #e6e9ef}
+    /* Top info bar */
+    .top-bar{
+      font-size:13px;
+      color:var(--muted);
+      text-align:center;
+      padding:6px 0 10px;
+    }
+
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:12px 0 20px;
+      border-bottom:1px solid #e6e9ef
+    }
     .brand{display:flex;gap:14px;align-items:center}
     h1{font-size:30px;margin:0;font-weight:700}
     p.lead{color:var(--muted);margin:6px 0 0;font-size:16px}
 
-    .hero{display:grid;grid-template-columns:1fr 500px;gap:32px;align-items:start;margin-top:16px}
-    .card{background:var(--card);padding:28px;border-radius:16px;box-shadow:0 8px 24px rgba(12,15,20,0.08)}
+    .hero{
+      display:grid;
+      grid-template-columns:1fr 500px;
+      gap:32px;
+      align-items:start;
+      margin-top:16px
+    }
+    .card{
+      background:var(--card);
+      padding:28px;
+      border-radius:16px;
+      box-shadow:0 8px 24px rgba(12,15,20,0.08)
+    }
 
     .features{display:flex;gap:16px;flex-wrap:wrap;margin-top:20px}
     .feature{flex:1 1 30%;min-width:180px}
     .feature h4{margin:0 0 6px;font-size:16px;font-weight:600}
     .muted{color:var(--muted);font-size:14px}
 
-    .testimonials{display:flex;gap:14px;flex-direction:column;margin-top:20px}
-    .testimonial{background:linear-gradient(180deg,rgba(11,121,208,0.03),transparent);padding:16px;border-radius:12px}
+    /* Service icons section */
+    .service-icons{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:18px;
+    }
+    .service-item{
+      flex:1 1 30%;
+      min-width:150px;
+      display:flex;
+      align-items:flex-start;
+      gap:8px;
+      font-size:14px;
+    }
+    .service-emoji{
+      font-size:20px;
+      margin-top:2px;
+    }
+    .service-label{
+      font-weight:500;
+    }
+
+    /* Why choose us */
+    .why-card{
+      margin-top:22px;
+      padding:18px 18px 12px;
+      border-radius:14px;
+      background:linear-gradient(135deg,rgba(11,121,208,0.04),rgba(255,255,255,0.95));
+      border:1px solid rgba(11,121,208,0.08);
+    }
+    .why-list{
+      list-style:none;
+      padding:0;
+      margin:10px 0 0;
+      font-size:14px;
+      color:var(--muted);
+    }
+    .why-list li{
+      margin-bottom:4px;
+      display:flex;
+      align-items:flex-start;
+      gap:6px;
+    }
+    .why-bullet{
+      font-size:15px;
+      margin-top:1px;
+    }
+
+    .testimonials{
+      display:flex;
+      gap:14px;
+      flex-direction:column;
+      margin-top:20px
+    }
+    .testimonial{
+      background:linear-gradient(180deg,rgba(11,121,208,0.03),transparent);
+      padding:16px;
+      border-radius:12px
+    }
     .quote{font-size:15px;margin:0 0 6px;font-style:italic}
     .who{font-size:13px;color:var(--muted);margin:0;text-align:right}
 
-    .cta{display:flex;gap:12px;align-items:center;margin-top:24px}
-    .btn{background:var(--accent);color:white;padding:12px 16px;border-radius:12px;border:0;cursor:pointer;font-weight:700}
-    .btn.ghost{background:transparent;color:var(--accent);border:2px solid rgba(11,121,208,0.3)}
+    .cta{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      margin-top:24px
+    }
+    .btn{
+      background:var(--accent);
+      color:white;
+      padding:12px 16px;
+      border-radius:12px;
+      border:0;
+      cursor:pointer;
+      font-weight:700;
+      font-size:14px;
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      text-decoration:none;
+    }
+    .btn.ghost{
+      background:transparent;
+      color:var(--accent);
+      border:2px solid rgba(11,121,208,0.3)
+    }
 
     #contact-card .form-wrap{display:flex;flex-direction:column;gap:16px}
     form{display:flex;flex-direction:column;gap:12px}
     label{font-size:14px;color:var(--muted);font-weight:500}
-    input,select,textarea{padding:12px;border-radius:10px;border:1px solid #e6e9ef;font-size:14px}
+    input,select,textarea{
+      padding:12px;
+      border-radius:10px;
+      border:1px solid #e6e9ef;
+      font-size:14px;
+    }
     textarea{min-height:120px;resize:vertical}
     .two-cols{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 
-    footer{margin-top:24px;padding:16px 0;color:var(--muted);font-size:14px;border-top:1px solid #e6e9ef}
+    footer{
+      margin-top:32px;
+      padding:16px 0 4px;
+      color:var(--muted);
+      font-size:14px;
+      border-top:1px solid #e6e9ef;
+      text-align:center;
+    }
 
     .orb {
       position: fixed;
@@ -62,15 +186,63 @@
     .orb2 {width:260px;height:260px;background:#d2ffe3;bottom:-40px;right:-40px;animation-delay:3s;}
     .orb3 {width:280px;height:280px;background:#ffd9e8;top:40%;left:70%;animation-delay:6s;}
 
-    @keyframes float {0%{transform:translate(0,0);}50%{transform:translate(30px,-40px);}100%{transform:translate(0,0);}}
+    @keyframes float {
+      0%{transform:translate(0,0);}
+      50%{transform:translate(30px,-40px);}
+      100%{transform:translate(0,0);}
+    }
+
+    /* Mobile sticky bar */
+    .mobile-bar{
+      position:fixed;
+      left:0;
+      right:0;
+      bottom:0;
+      background:#ffffff;
+      box-shadow:0 -4px 16px rgba(0,0,0,0.08);
+      padding:8px 14px 10px;
+      display:none;
+      justify-content:space-between;
+      align-items:center;
+      z-index:50;
+      gap:8px;
+    }
+    .mobile-bar button,
+    .mobile-bar a{
+      flex:1;
+      font-size:13px;
+      padding:10px 8px;
+      border-radius:999px;
+      border:none;
+      cursor:pointer;
+      font-weight:600;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:6px;
+      text-decoration:none;
+      white-space:nowrap;
+    }
+    .mobile-bar .whatsapp-btn{
+      background:#25D366;
+      color:white;
+    }
+    .mobile-bar .quote-btn{
+      background:var(--accent);
+      color:white;
+    }
 
     @media (max-width:768px){
       .container{padding:16px!important;}
-      header{flex-direction:column;text-align:center;gap:12px;}
+      .top-bar{font-size:12px;}
+      header{flex-direction:column;text-align:center;gap:8px;}
       .hero{grid-template-columns:1fr!important;}
       #contact-card{width:100%!important;margin:0 auto!important;}
       .two-cols{grid-template-columns:1fr!important;}
       .orb{filter:blur(45px);opacity:0.35;}
+      .cta{flex-direction:column;align-items:stretch;}
+      .mobile-bar{display:flex;}
+      footer{padding-bottom:52px;} /* espacio para la barra móvil */
     }
   </style>
 </head>
@@ -82,7 +254,21 @@
   <div class="orb orb2"></div>
   <div class="orb orb3"></div>
 
+  <!-- MOBILE STICKY BAR -->
+  <div class="mobile-bar">
+    <a class="whatsapp-btn" href="https://wa.me/34654184907" target="_blank" rel="noopener">
+      📱 WhatsApp
+    </a>
+    <button class="quote-btn" onclick="document.getElementById('contact-card').scrollIntoView({behavior:'smooth'})">
+      💬 Get a Quote
+    </button>
+  </div>
+
   <div class="container">
+
+    <div class="top-bar">
+      Same-day available — Fast &amp; reliable — Serving all NYC
+    </div>
 
     <header>
       <div class="brand">
@@ -101,23 +287,93 @@
     <main class="hero">
       <section>
         <div class="card">
-          <h2 style="margin:0 0 6px;font-size:22px">Trusted Home Cleaning in NYC</h2>
-          <p class="muted" style="margin-bottom:16px">Your solution for keeping your space clean</p>
+          <h2 style="margin:0 0 6px;font-size:22px">Trusted Home &amp; Airbnb Cleaning in NYC</h2>
+          <p class="muted" style="margin-bottom:16px">
+            Fast, flexible and reliable cleaning for apartments, Airbnbs, move-ins and small offices.
+          </p>
 
-          <div class="features">
-            <div class="feature"><h4>Regular Cleaning</h4><div class="muted">Weekly, bi-weekly, or monthly.</div></div>
-            <div class="feature"><h4>Deep Cleaning</h4><div class="muted">Top-to-bottom cleaning.</div></div>
-            <div class="feature"><h4>Move-In / Move-Out</h4><div class="muted">Perfect for transitions.</div></div>
+          <!-- Service icons -->
+          <div class="service-icons">
+            <div class="service-item">
+              <span class="service-emoji">🧹</span>
+              <div>
+                <div class="service-label">Regular Cleaning</div>
+                <div class="muted">Weekly, bi-weekly or monthly.</div>
+              </div>
+            </div>
+            <div class="service-item">
+              <span class="service-emoji">🧽</span>
+              <div>
+                <div class="service-label">Deep Cleaning</div>
+                <div class="muted">Top-to-bottom detailed clean.</div>
+              </div>
+            </div>
+            <div class="service-item">
+              <span class="service-emoji">🚚</span>
+              <div>
+                <div class="service-label">Move-In / Move-Out</div>
+                <div class="muted">Perfect for transitions.</div>
+              </div>
+            </div>
+            <div class="service-item">
+              <span class="service-emoji">🏨</span>
+              <div>
+                <div class="service-label">Airbnb Turnovers</div>
+                <div class="muted">Guest-ready, on time, with photos.</div>
+              </div>
+            </div>
+            <div class="service-item">
+              <span class="service-emoji">🏢</span>
+              <div>
+                <div class="service-label">Small Offices</div>
+                <div class="muted">Clean, presentable workspaces.</div>
+              </div>
+            </div>
+            <div class="service-item">
+              <span class="service-emoji">🏬</span>
+              <div>
+                <div class="service-label">Big Offices &amp; Other</div>
+                <div class="muted">Custom quotes for larger spaces.</div>
+              </div>
+            </div>
           </div>
 
+          <!-- Why choose us -->
+          <div class="why-card">
+            <h3 style="margin:0 0 4px;font-size:18px;">Why choose us?</h3>
+            <ul class="why-list">
+              <li><span class="why-bullet">⚡</span><span>Fast &amp; flexible — same-day cleanings available.</span></li>
+              <li><span class="why-bullet">🔒</span><span>Reliable — we show up on time, every time.</span></li>
+              <li><span class="why-bullet">🧼</span><span>Guest-ready quality — detailed and consistent work.</span></li>
+              <li><span class="why-bullet">📸</span><span>Photo proof after each cleaning (on request).</span></li>
+              <li><span class="why-bullet">💬</span><span>Direct communication — no call centers, no apps.</span></li>
+              <li><span class="why-bullet">💰</span><span>Fair, transparent pricing based on size and condition.</span></li>
+            </ul>
+          </div>
+
+          <!-- Testimonials -->
           <div class="testimonials">
-            <div class="testimonial"><p class="quote">"Super reliable and left my apartment spotless."</p><p class="who">— Emily R.</p></div>
-            <div class="testimonial"><p class="quote">"Perfect for Airbnb turnovers!"</p><p class="who">— Daniel L.</p></div>
+            <div class="testimonial">
+              <p class="quote">"Amazing experience. Super fast and reliable — my 1BR looked brand new."</p>
+              <p class="who">— Sarah J., Williamsburg</p>
+            </div>
+            <div class="testimonial">
+              <p class="quote">"Perfect for my Airbnb turnovers. Always on time, always spotless, guests are happy."</p>
+              <p class="who">— Marcus L., Jersey City</p>
+            </div>
+            <div class="testimonial">
+              <p class="quote">"Great communication and very fair pricing. I finally have someone I can trust."</p>
+              <p class="who">— Anna R., Astoria</p>
+            </div>
           </div>
 
           <div class="cta">
-            <button class="btn" onclick="document.getElementById('contact-card').scrollIntoView({behavior:'smooth'})">Request Your Cleaning</button>
-            <button class="btn ghost" onclick="open('mailto:ramon@achusinc.com','_self')">Email Us</button>
+            <button class="btn" onclick="document.getElementById('contact-card').scrollIntoView({behavior:'smooth'})">
+              💬 Request Your Cleaning
+            </button>
+            <a class="btn ghost" href="https://wa.me/34654184907" target="_blank" rel="noopener">
+              📱 WhatsApp us
+            </a>
           </div>
         </div>
       </section>
@@ -125,7 +381,9 @@
       <aside>
         <div id="contact-card" class="card">
           <h3 style="margin-top:0;font-size:20px">Get a Quick Quote</h3>
-          <p class="muted" style="margin-bottom:16px">Complete the form and we'll contact you promptly.</p>
+          <p class="muted" style="margin-bottom:16px">
+            Complete the form and we'll contact you promptly with a custom quote.
+          </p>
 
           <div class="form-wrap">
             <form id="contact" method="POST" action="https://formspree.io/f/mblwdqwr">
@@ -179,7 +437,9 @@
               <label for="message">Message (Optional)</label>
               <textarea id="message" name="message"></textarea>
 
-              <button type="submit" class="btn" style="width:100%;margin-top:8px">Get My Quote</button>
+              <button type="submit" class="btn" style="width:100%;margin-top:8px">
+                Get My Quote
+              </button>
             </form>
           </div>
         </div>
@@ -187,9 +447,7 @@
     </main>
 
     <footer>
-      <div style="text-align:center">
-        © <span id="year"></span> Professional Cleaning Services — NYC
-      </div>
+      © <span id="year"></span> Professional Cleaning Services — NYC
     </footer>
 
   </div>
@@ -213,12 +471,13 @@
     function handleServiceChange() {
       const service = document.getElementById('service').value;
       const sizeWrapper = document.getElementById('size-wrapper');
+      const priceBox = document.getElementById('price-box');
 
       const hideSize = ["Office", "BigOffice", "Other"];
 
       if (hideSize.includes(service)) {
         sizeWrapper.style.display = "none";
-        document.getElementById("price-box").style.display = "none";
+        priceBox.style.display = "none";
       } else {
         sizeWrapper.style.display = "block";
       }
@@ -227,3 +486,4 @@
 
 </body>
 </html>
+
