@@ -70,7 +70,7 @@
     .quote{font-size:15px;font-style:italic;margin:0 0 6px}
     .who{font-size:13px;color:var(--muted);text-align:right;margin:0}
 
-    /* BUTTONS (iOS MINIMAL STYLE) */
+    /* BUTTONS — iOS minimal + primary blue */
     .btn-primary{
       background:var(--accent);
       background:linear-gradient(180deg,var(--accent-soft),var(--accent));
@@ -112,13 +112,14 @@
       transform:translateY(-1px);
     }
 
-    /* FORM */
-    form{display:flex;flex-direction:column;gap:12px}
+    /* FORM UNIFORM SPACING */
+    form{display:flex;flex-direction:column;gap:18px}
+    .field-block{display:flex;flex-direction:column;gap:6px}
     input,select,textarea{
       padding:12px;border-radius:10px;border:1px solid #e6e9ef;font-size:14px
     }
     textarea{min-height:120px;resize:vertical}
-    .two-cols{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .two-cols{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 
     footer{text-align:center;margin-top:32px;padding:16px 0;color:var(--muted);font-size:14px}
 
@@ -133,7 +134,7 @@
       100%{transform:translate(0,0)}
     }
 
-    /* MOBILE FIXES + MOBILE STICKY BAR */
+    /* MOBILE STICKY BAR */
     .mobile-bar{
       position:fixed;bottom:0;left:0;right:0;
       background:white;
@@ -178,6 +179,15 @@
       footer{padding-bottom:70px}
       .cta{flex-direction:column}
     }
+
+    /* PRICE FADE ANIMATION */
+    .fade {
+      animation: fadeIn .35s ease-in-out;
+    }
+    @keyframes fadeIn {
+      0% {opacity: 0; transform: translateY(4px);}
+      100% {opacity: 1; transform: translateY(0);}
+    }
   </style>
 </head>
 
@@ -213,7 +223,9 @@
     <main class="hero">
       <section>
         <div class="card">
-          <h2 style="margin:0 0 6px;font-size:22px">Trusted Home & Airbnb Cleaning in NYC</h2>
+          <h2 style="margin:0 0 6px;font-size:22px;font-weight:700">
+            Trusted Home & Airbnb Cleaning in NYC
+          </h2>
           <p class="muted" style="margin-bottom:16px">Fast, flexible and reliable cleaning for apartments, Airbnbs, move-ins and small offices.</p>
 
           <!-- ICONS -->
@@ -246,8 +258,8 @@
             <div class="testimonial"><p class="quote">"Great communication and pricing. Highly recommended."</p><p class="who">— Anna R., Astoria</p></div>
           </div>
 
-          <!-- CTA BUTTONS (iOS MINIMAL) -->
-          <div class="cta" style="margin-top:24px">
+          <!-- CTA BUTTONS -->
+          <div class="cta" style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap;">
             <button class="btn-primary" onclick="document.getElementById('contact-card').scrollIntoView({behavior:'smooth'})">🧽 Request Cleaning</button>
             <a class="btn-secondary" href="sms:+15625038628">💬 Message us</a>
           </div>
@@ -257,19 +269,23 @@
       <!-- FORM -->
       <aside>
         <div id="contact-card" class="card">
-          <h3 style="margin-top:0;font-size:20px">Get a Quick Quote</h3>
-          <p class="muted" style="margin-bottom:16px">Complete the form and we’ll reach out quickly.</p>
+          <h3 style="margin-top:0;font-size:22px;font-weight:700">Get a Quick Quote</h3>
+          <p class="muted" style="margin-bottom:10px">Complete the form and we’ll reach out quickly.</p>
 
           <form method="POST" action="https://formspree.io/f/mblwdqwr">
 
-            <label>Full Name *</label>
-            <input name="name" required>
+            <div class="field-block">
+              <label>Full Name *</label>
+              <input name="name" required>
+            </div>
 
-            <label>Address / Neighborhood *</label>
-            <input name="neighborhood" required>
+            <div class="field-block">
+              <label>Address / Neighborhood *</label>
+              <input name="neighborhood" required>
+            </div>
 
             <div class="two-cols">
-              <div>
+              <div class="field-block">
                 <label>Type of Service *</label>
                 <select id="service" name="service" onchange="handleServiceChange()">
                   <option>Regular Cleaning</option>
@@ -282,7 +298,7 @@
                 </select>
               </div>
 
-              <div id="size-wrapper">
+              <div class="field-block" id="size-wrapper">
                 <label>Apartment Size *</label>
                 <select id="size" name="size" onchange="updatePrice()">
                   <option>Studio</option>
@@ -297,27 +313,45 @@
               Estimated Price: <span id="price"></span>
             </div>
 
-            <label>Date</label>
-            <input type="date" name="date">
+            <!-- SAME DAY SERVICE -->
+            <div class="field-block" style="margin-top:4px;">
+              <label style="font-weight:600;">Same-day service available</label>
+              <div style="display:flex;align-items:center;gap:8px;">
+                <input id="sameday" name="sameday" type="checkbox" onchange="updatePrice()" style="width:18px;height:18px;">
+                <span style="font-size:14px;color:var(--muted)">Check if you need same-day cleaning</span>
+              </div>
+            </div>
 
-            <label>Phone *</label>
-            <input name="phone" required>
+            <div class="field-block">
+              <label>Date</label>
+              <input type="date" name="date">
+            </div>
 
-            <label>Email *</label>
-            <input type="email" name="email" required>
+            <div class="field-block">
+              <label>Phone *</label>
+              <input name="phone" required>
+            </div>
 
-            <label>Message (optional)</label>
-            <textarea name="message"></textarea>
+            <div class="field-block">
+              <label>Email *</label>
+              <input type="email" name="email" required>
+            </div>
 
-            <button class="btn-primary" style="width:100%;margin-top:8px">Get My Quote</button>
+            <div class="field-block">
+              <label>Message (optional)</label>
+              <textarea name="message"></textarea>
+            </div>
 
+            <button class="btn-primary" style="width:100%;margin-top:10px">Get My Quote</button>
           </form>
         </div>
       </aside>
 
     </main>
 
-    <footer>© <span id="year"></span> Professional Cleaning Services — NYC</footer>
+    <footer>
+      © <span id="year"></span> Professional Cleaning Services — NYC
+    </footer>
 
   </div>
 
@@ -325,18 +359,32 @@
     document.getElementById('year').textContent = new Date().getFullYear();
 
     function updatePrice(){
-      const size=document.getElementById('size').value;
-      const priceBox=document.getElementById('price-box');
-      const price=document.getElementById('price');
+      const size = document.getElementById('size')?.value;
+      const service = document.getElementById('service').value;
+      const sameDay = document.getElementById('sameday').checked;
+      const priceBox = document.getElementById('price-box');
+      const priceEl = document.getElementById('price');
 
-      let p="";
-      if(size==="Studio") p="From $120";
-      if(size==="1BR") p="From $160";
-      if(size==="2BR") p="From $200";
-      if(size==="3BR+") p="From $250";
+      let p = "";
 
-      price.textContent=p;
-      priceBox.style.display="block";
+      if(service === "Office" || service === "BigOffice" || service === "Other"){
+        priceBox.style.display = "none";
+        return;
+      }
+
+      if(size === "Studio") p = 120;
+      if(size === "1BR") p = 160;
+      if(size === "2BR") p = 200;
+      if(size === "3BR+") p = 250;
+
+      if(sameDay) p += 40;
+
+      priceEl.textContent = "$" + p;
+      priceBox.style.display = "block";
+
+      priceBox.classList.remove("fade");
+      void priceBox.offsetWidth;
+      priceBox.classList.add("fade");
     }
 
     function handleServiceChange(){
@@ -355,5 +403,6 @@
 
 </body>
 </html>
+
 
 
