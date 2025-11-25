@@ -6,9 +6,6 @@
   <title>Professional Cleaning Services in NYC</title>
   <meta name="description" content="Reliable, fast and affordable home cleaning in New York City. Book your cleaning in seconds.">
 
-  <meta property="og:image" content="preview.jpg">
-  <meta name="twitter:image" content="preview.jpg">
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -16,233 +13,170 @@
   <style>
     :root{
       --accent:#0b79d0;
+      --accent-soft:#0d8ae8;
       --dark:#111217;
       --muted:#6b7280;
       --bg:#f7fafc;
       --card:#ffffff;
       font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial
     }
+
     *{box-sizing:border-box}
     body{margin:0;background:var(--bg);color:var(--dark);line-height:1.45}
     .container{max-width:1000px;margin:0 auto;padding:32px}
 
-    /* Top info bar */
     .top-bar{
-      font-size:13px;
-      color:var(--muted);
-      text-align:center;
-      padding:6px 0 10px;
+      font-size:13px;color:var(--muted);text-align:center;padding:6px 0 10px;
     }
 
     header{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:12px 0 20px;
-      border-bottom:1px solid #e6e9ef
+      display:flex;align-items:center;justify-content:space-between;
+      padding:12px 0 20px;border-bottom:1px solid #e6e9ef
     }
-    .brand{display:flex;gap:14px;align-items:center}
     h1{font-size:30px;margin:0;font-weight:700}
     p.lead{color:var(--muted);margin:6px 0 0;font-size:16px}
 
     .hero{
-      display:grid;
-      grid-template-columns:1fr 500px;
-      gap:32px;
-      align-items:start;
-      margin-top:16px
+      display:grid;grid-template-columns:1fr 500px;
+      gap:32px;align-items:start;margin-top:16px
     }
     .card{
-      background:var(--card);
-      padding:28px;
-      border-radius:16px;
+      background:var(--card);padding:28px;border-radius:16px;
       box-shadow:0 8px 24px rgba(12,15,20,0.08)
     }
 
-    .features{display:flex;gap:16px;flex-wrap:wrap;margin-top:20px}
-    .feature{flex:1 1 30%;min-width:180px}
-    .feature h4{margin:0 0 6px;font-size:16px;font-weight:600}
-    .muted{color:var(--muted);font-size:14px}
+    /* SERVICE ICONS */
+    .service-icons{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+    .service-item{flex:1 1 30%;min-width:150px;display:flex;gap:8px;font-size:14px}
+    .service-emoji{font-size:20px;margin-top:2px}
+    .service-label{font-weight:500}
 
-    /* Service icons section */
-    .service-icons{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      margin-top:18px;
-    }
-    .service-item{
-      flex:1 1 30%;
-      min-width:150px;
-      display:flex;
-      align-items:flex-start;
-      gap:8px;
-      font-size:14px;
-    }
-    .service-emoji{
-      font-size:20px;
-      margin-top:2px;
-    }
-    .service-label{
-      font-weight:500;
-    }
-
-    /* Why choose us */
+    /* WHY SECTION */
     .why-card{
-      margin-top:22px;
-      padding:18px 18px 12px;
-      border-radius:14px;
-      background:linear-gradient(135deg,rgba(11,121,208,0.04),rgba(255,255,255,0.95));
-      border:1px solid rgba(11,121,208,0.08);
+      margin-top:22px;padding:18px;border-radius:14px;
+      background:linear-gradient(135deg,rgba(11,121,208,0.04),rgba(255,255,255,0.97));
+      border:1px solid rgba(11,121,208,0.08)
     }
-    .why-list{
-      list-style:none;
-      padding:0;
-      margin:10px 0 0;
-      font-size:14px;
-      color:var(--muted);
-    }
-    .why-list li{
-      margin-bottom:4px;
-      display:flex;
-      align-items:flex-start;
-      gap:6px;
-    }
-    .why-bullet{
-      font-size:15px;
-      margin-top:1px;
-    }
+    .why-list{list-style:none;margin:10px 0 0;padding:0;font-size:14px;color:var(--muted)}
+    .why-list li{display:flex;gap:6px;margin-bottom:4px}
+    .why-bullet{font-size:15px;margin-top:1px}
 
-    .testimonials{
-      display:flex;
-      gap:14px;
-      flex-direction:column;
-      margin-top:20px
-    }
+    /* TESTIMONIALS */
+    .testimonials{display:flex;gap:14px;flex-direction:column;margin-top:20px}
     .testimonial{
       background:linear-gradient(180deg,rgba(11,121,208,0.03),transparent);
-      padding:16px;
-      border-radius:12px
+      padding:16px;border-radius:12px
     }
-    .quote{font-size:15px;margin:0 0 6px;font-style:italic}
-    .who{font-size:13px;color:var(--muted);margin:0;text-align:right}
+    .quote{font-size:15px;font-style:italic;margin:0 0 6px}
+    .who{font-size:13px;color:var(--muted);text-align:right;margin:0}
 
-    .cta{
-      display:flex;
-      gap:12px;
-      align-items:center;
-      margin-top:24px
-    }
-    .btn{
+    /* BUTTONS (iOS MINIMAL STYLE) */
+    .btn-primary{
       background:var(--accent);
+      background:linear-gradient(180deg,var(--accent-soft),var(--accent));
       color:white;
-      padding:12px 16px;
-      border-radius:12px;
-      border:0;
-      cursor:pointer;
+      padding:14px 22px;
+      border-radius:999px;
       font-weight:700;
-      font-size:14px;
+      font-size:15px;
+      border:none;
+      cursor:pointer;
       display:inline-flex;
       align-items:center;
-      gap:6px;
-      text-decoration:none;
+      gap:8px;
+      box-shadow:0 4px 14px rgba(13,138,232,0.25);
+      transition:0.2s;
     }
-    .btn.ghost{
-      background:transparent;
-      color:var(--accent);
-      border:2px solid rgba(11,121,208,0.3)
+    .btn-primary:hover{
+      transform:translateY(-2px);
+      box-shadow:0 6px 18px rgba(13,138,232,0.32);
     }
 
-    #contact-card .form-wrap{display:flex;flex-direction:column;gap:16px}
+    .btn-secondary{
+      background:white;
+      color:var(--accent);
+      padding:14px 22px;
+      border-radius:999px;
+      font-weight:700;
+      font-size:15px;
+      border:none;
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      box-shadow:0 4px 14px rgba(0,0,0,0.05);
+      transition:0.2s;
+    }
+    .btn-secondary:hover{
+      background:#f8f8f8;
+      transform:translateY(-1px);
+    }
+
+    /* FORM */
     form{display:flex;flex-direction:column;gap:12px}
-    label{font-size:14px;color:var(--muted);font-weight:500}
     input,select,textarea{
-      padding:12px;
-      border-radius:10px;
-      border:1px solid #e6e9ef;
-      font-size:14px;
+      padding:12px;border-radius:10px;border:1px solid #e6e9ef;font-size:14px
     }
     textarea{min-height:120px;resize:vertical}
     .two-cols{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 
-    footer{
-      margin-top:32px;
-      padding:16px 0 4px;
-      color:var(--muted);
-      font-size:14px;
-      border-top:1px solid #e6e9ef;
-      text-align:center;
+    footer{text-align:center;margin-top:32px;padding:16px 0;color:var(--muted);font-size:14px}
+
+    /* ORBS BACKGROUND */
+    .orb{position:fixed;border-radius:50%;filter:blur(60px);opacity:.45;z-index:-1;animation:float 12s infinite}
+    .orb1{width:320px;height:320px;background:#a8d8ff;top:-60px;left:-60px}
+    .orb2{width:260px;height:260px;background:#d2ffe3;bottom:-40px;right:-40px;animation-delay:3s}
+    .orb3{width:280px;height:280px;background:#ffd9e8;top:40%;left:70%;animation-delay:6s}
+    @keyframes float{
+      0%{transform:translate(0,0)}
+      50%{transform:translate(30px,-40px)}
+      100%{transform:translate(0,0)}
     }
 
-    .orb {
-      position: fixed;
-      border-radius: 50%;
-      filter: blur(60px);
-      opacity: 0.45;
-      z-index: -1;
-      animation: float 12s ease-in-out infinite;
-    }
-    .orb1 {width:320px;height:320px;background:#a8d8ff;top:-60px;left:-60px;}
-    .orb2 {width:260px;height:260px;background:#d2ffe3;bottom:-40px;right:-40px;animation-delay:3s;}
-    .orb3 {width:280px;height:280px;background:#ffd9e8;top:40%;left:70%;animation-delay:6s;}
-
-    @keyframes float {
-      0%{transform:translate(0,0);}
-      50%{transform:translate(30px,-40px);}
-      100%{transform:translate(0,0);}
-    }
-
-    /* Mobile sticky bar */
+    /* MOBILE FIXES + MOBILE STICKY BAR */
     .mobile-bar{
-      position:fixed;
-      left:0;
-      right:0;
-      bottom:0;
-      background:#ffffff;
-      box-shadow:0 -4px 16px rgba(0,0,0,0.08);
-      padding:8px 14px 10px;
+      position:fixed;bottom:0;left:0;right:0;
+      background:white;
+      box-shadow:0 -4px 16px rgba(0,0,0,0.1);
+      padding:10px 16px;
       display:none;
-      justify-content:space-between;
-      align-items:center;
+      gap:10px;
       z-index:50;
-      gap:8px;
     }
-    .mobile-bar button,
-    .mobile-bar a{
+    .mobile-bar a,
+    .mobile-bar button{
       flex:1;
-      font-size:13px;
-      padding:10px 8px;
       border-radius:999px;
-      border:none;
-      cursor:pointer;
+      padding:12px;
+      font-size:14px;
       font-weight:600;
-      display:inline-flex;
+      display:flex;
       align-items:center;
       justify-content:center;
       gap:6px;
       text-decoration:none;
-      white-space:nowrap;
-    }
-    .mobile-bar .whatsapp-btn{
-      background:#25D366;
-      color:white;
-    }
-    .mobile-bar .quote-btn{
-      background:var(--accent);
-      color:white;
     }
 
-    @media (max-width:768px){
-      .container{padding:16px!important;}
-      .top-bar{font-size:12px;}
-      header{flex-direction:column;text-align:center;gap:8px;}
-      .hero{grid-template-columns:1fr!important;}
-      #contact-card{width:100%!important;margin:0 auto!important;}
-      .two-cols{grid-template-columns:1fr!important;}
-      .orb{filter:blur(45px);opacity:0.35;}
-      .cta{flex-direction:column;align-items:stretch;}
-      .mobile-bar{display:flex;}
-      footer{padding-bottom:52px;} /* espacio para la barra móvil */
+    .mobile-msg{
+      background:white;
+      color:var(--accent);
+      border:none;
+      box-shadow:0 4px 12px rgba(0,0,0,0.08);
+    }
+    .mobile-quote{
+      background:linear-gradient(180deg,var(--accent-soft),var(--accent));
+      color:white;
+      border:none;
+      box-shadow:0 4px 12px rgba(13,138,232,0.25);
+    }
+
+    @media(max-width:768px){
+      .container{padding:16px}
+      header{text-align:center;flex-direction:column;gap:8px}
+      .hero{grid-template-columns:1fr}
+      .mobile-bar{display:flex}
+      footer{padding-bottom:70px}
+      .cta{flex-direction:column}
     }
   </style>
 </head>
@@ -254,31 +188,23 @@
   <div class="orb orb2"></div>
   <div class="orb orb3"></div>
 
-  <!-- MOBILE STICKY BAR -->
+  <!-- MOBILE BAR -->
   <div class="mobile-bar">
-    <a class="whatsapp-btn" href="https://wa.me/34654184907" target="_blank" rel="noopener">
-      📱 WhatsApp
-    </a>
-    <button class="quote-btn" onclick="document.getElementById('contact-card').scrollIntoView({behavior:'smooth'})">
-      💬 Get a Quote
-    </button>
+    <a class="mobile-msg" href="sms:+15625038628">💬 Message us</a>
+    <button class="mobile-quote" onclick="document.getElementById('contact-card').scrollIntoView({behavior:'smooth'})">🧽 Get Quote</button>
   </div>
 
   <div class="container">
 
-    <div class="top-bar">
-      Same-day available — Fast &amp; reliable — Serving all NYC
-    </div>
+    <div class="top-bar">Same-day available — Fast & reliable — Serving all NYC</div>
 
     <header>
-      <div class="brand">
-        <div>
-          <h1>Professional Cleaning Services NYC</h1>
-          <p class="lead">Reliable • Fast • Affordable — Book your cleaning in seconds</p>
-        </div>
+      <div>
+        <h1>Professional Cleaning Services NYC</h1>
+        <p class="lead">Reliable • Fast • Affordable — Book your cleaning in seconds</p>
       </div>
       <div style="text-align:right">
-        <div style="font-weight:600">Call or message</div>
+        <div style="font-weight:600">Call us</div>
         <div style="font-size:14px;color:var(--muted)">+1 (562) 503 8628</div>
         <div style="font-size:13px;color:var(--muted)">ramon@achusinc.com</div>
       </div>
@@ -287,203 +213,147 @@
     <main class="hero">
       <section>
         <div class="card">
-          <h2 style="margin:0 0 6px;font-size:22px">Trusted Home &amp; Airbnb Cleaning in NYC</h2>
-          <p class="muted" style="margin-bottom:16px">
-            Fast, flexible and reliable cleaning for apartments, Airbnbs, move-ins and small offices.
-          </p>
+          <h2 style="margin:0 0 6px;font-size:22px">Trusted Home & Airbnb Cleaning in NYC</h2>
+          <p class="muted" style="margin-bottom:16px">Fast, flexible and reliable cleaning for apartments, Airbnbs, move-ins and small offices.</p>
 
-          <!-- Service icons -->
+          <!-- ICONS -->
           <div class="service-icons">
-            <div class="service-item">
-              <span class="service-emoji">🧹</span>
-              <div>
-                <div class="service-label">Regular Cleaning</div>
-                <div class="muted">Weekly, bi-weekly or monthly.</div>
-              </div>
-            </div>
-            <div class="service-item">
-              <span class="service-emoji">🧽</span>
-              <div>
-                <div class="service-label">Deep Cleaning</div>
-                <div class="muted">Top-to-bottom detailed clean.</div>
-              </div>
-            </div>
-            <div class="service-item">
-              <span class="service-emoji">🚚</span>
-              <div>
-                <div class="service-label">Move-In / Move-Out</div>
-                <div class="muted">Perfect for transitions.</div>
-              </div>
-            </div>
-            <div class="service-item">
-              <span class="service-emoji">🏨</span>
-              <div>
-                <div class="service-label">Airbnb Turnovers</div>
-                <div class="muted">Guest-ready, on time, with photos.</div>
-              </div>
-            </div>
-            <div class="service-item">
-              <span class="service-emoji">🏢</span>
-              <div>
-                <div class="service-label">Small Offices</div>
-                <div class="muted">Clean, presentable workspaces.</div>
-              </div>
-            </div>
-            <div class="service-item">
-              <span class="service-emoji">🏬</span>
-              <div>
-                <div class="service-label">Big Offices &amp; Other</div>
-                <div class="muted">Custom quotes for larger spaces.</div>
-              </div>
-            </div>
+            <div class="service-item"><span class="service-emoji">🧹</span><div><div class="service-label">Regular Cleaning</div><div class="muted">Weekly or monthly.</div></div></div>
+            <div class="service-item"><span class="service-emoji">🧽</span><div><div class="service-label">Deep Cleaning</div><div class="muted">Top-to-bottom cleaning.</div></div></div>
+            <div class="service-item"><span class="service-emoji">🚚</span><div><div class="service-label">Move-In / Move-Out</div><div class="muted">Perfect for transitions.</div></div></div>
+            <div class="service-item"><span class="service-emoji">🏨</span><div><div class="service-label">Airbnb Turnovers</div><div class="muted">Guest-ready, always on time.</div></div></div>
+            <div class="service-item"><span class="service-emoji">🏢</span><div><div class="service-label">Small Offices</div><div class="muted">Clean and presentable.</div></div></div>
+            <div class="service-item"><span class="service-emoji">🏬</span><div><div class="service-label">Big Office / Other</div><div class="muted">Custom quotes.</div></div></div>
           </div>
 
-          <!-- Why choose us -->
+          <!-- WHY US -->
           <div class="why-card">
-            <h3 style="margin:0 0 4px;font-size:18px;">Why choose us?</h3>
+            <h3 style="margin:0;font-size:18px;">Why choose us?</h3>
             <ul class="why-list">
-              <li><span class="why-bullet">⚡</span><span>Fast &amp; flexible — same-day cleanings available.</span></li>
-              <li><span class="why-bullet">🔒</span><span>Reliable — we show up on time, every time.</span></li>
-              <li><span class="why-bullet">🧼</span><span>Guest-ready quality — detailed and consistent work.</span></li>
-              <li><span class="why-bullet">📸</span><span>Photo proof after each cleaning (on request).</span></li>
-              <li><span class="why-bullet">💬</span><span>Direct communication — no call centers, no apps.</span></li>
-              <li><span class="why-bullet">💰</span><span>Fair, transparent pricing based on size and condition.</span></li>
+              <li><span class="why-bullet">⚡</span>Fast & flexible — same-day available.</li>
+              <li><span class="why-bullet">🔒</span>100% reliable — we show up.</li>
+              <li><span class="why-bullet">🧼</span>Guest-ready quality every time.</li>
+              <li><span class="why-bullet">📸</span>Photo proof on request.</li>
+              <li><span class="why-bullet">💬</span>Direct communication — no agencies.</li>
+              <li><span class="why-bullet">💰</span>Transparent, fair pricing.</li>
             </ul>
           </div>
 
-          <!-- Testimonials -->
+          <!-- TESTIMONIALS -->
           <div class="testimonials">
-            <div class="testimonial">
-              <p class="quote">"Amazing experience. Super fast and reliable — my 1BR looked brand new."</p>
-              <p class="who">— Sarah J., Williamsburg</p>
-            </div>
-            <div class="testimonial">
-              <p class="quote">"Perfect for my Airbnb turnovers. Always on time, always spotless, guests are happy."</p>
-              <p class="who">— Marcus L., Jersey City</p>
-            </div>
-            <div class="testimonial">
-              <p class="quote">"Great communication and very fair pricing. I finally have someone I can trust."</p>
-              <p class="who">— Anna R., Astoria</p>
-            </div>
+            <div class="testimonial"><p class="quote">"Amazing experience. Super reliable — my 1BR looked brand new."</p><p class="who">— Sarah J., Williamsburg</p></div>
+            <div class="testimonial"><p class="quote">"Perfect for Airbnb turnovers. Always spotless."</p><p class="who">— Marcus L., Jersey City</p></div>
+            <div class="testimonial"><p class="quote">"Great communication and pricing. Highly recommended."</p><p class="who">— Anna R., Astoria</p></div>
           </div>
 
-          <div class="cta">
-            <button class="btn" onclick="document.getElementById('contact-card').scrollIntoView({behavior:'smooth'})">
-              💬 Request Your Cleaning
-            </button>
-            <a class="btn ghost" href="https://wa.me/34654184907" target="_blank" rel="noopener">
-              📱 WhatsApp us
-            </a>
+          <!-- CTA BUTTONS (iOS MINIMAL) -->
+          <div class="cta" style="margin-top:24px">
+            <button class="btn-primary" onclick="document.getElementById('contact-card').scrollIntoView({behavior:'smooth'})">🧽 Request Cleaning</button>
+            <a class="btn-secondary" href="sms:+15625038628">💬 Message us</a>
           </div>
         </div>
       </section>
 
+      <!-- FORM -->
       <aside>
         <div id="contact-card" class="card">
           <h3 style="margin-top:0;font-size:20px">Get a Quick Quote</h3>
-          <p class="muted" style="margin-bottom:16px">
-            Complete the form and we'll contact you promptly with a custom quote.
-          </p>
+          <p class="muted" style="margin-bottom:16px">Complete the form and we’ll reach out quickly.</p>
 
-          <div class="form-wrap">
-            <form id="contact" method="POST" action="https://formspree.io/f/mblwdqwr">
+          <form method="POST" action="https://formspree.io/f/mblwdqwr">
 
-              <label for="name">Full Name *</label>
-              <input id="name" name="name" required>
+            <label>Full Name *</label>
+            <input name="name" required>
 
-              <label for="neighborhood">Address / Neighborhood *</label>
-              <input id="neighborhood" name="neighborhood" required>
+            <label>Address / Neighborhood *</label>
+            <input name="neighborhood" required>
 
-              <div class="two-cols">
-                <div>
-                  <label for="service">Type of Service *</label>
-                  <select id="service" name="service" required onchange="handleServiceChange()">
-                    <option value="Regular">Regular Cleaning</option>
-                    <option value="Deep">Deep Cleaning</option>
-                    <option value="Move">Move-In / Move-Out</option>
-                    <option value="Airbnb">Airbnb Turnover</option>
-                    <option value="Office">Small Office</option>
-                    <option value="BigOffice">Big Office</option>
-                    <option value="Other">Other</option>
-                  </select>
-                </div>
-
-                <!-- SIZE WRAPPER -->
-                <div id="size-wrapper">
-                  <label for="size">Apartment Size *</label>
-                  <select id="size" name="size" onchange="updatePrice()">
-                    <option value="Studio">Studio</option>
-                    <option value="1BR">1 Bedroom</option>
-                    <option value="2BR">2 Bedrooms</option>
-                    <option value="3BR+">3+ Bedrooms</option>
-                  </select>
-                </div>
+            <div class="two-cols">
+              <div>
+                <label>Type of Service *</label>
+                <select id="service" name="service" onchange="handleServiceChange()">
+                  <option>Regular Cleaning</option>
+                  <option>Deep Cleaning</option>
+                  <option>Move-In / Move-Out</option>
+                  <option>Airbnb Turnover</option>
+                  <option value="Office">Small Office</option>
+                  <option value="BigOffice">Big Office</option>
+                  <option value="Other">Other</option>
+                </select>
               </div>
 
-              <!-- DYNAMIC PRICE -->
-              <div id="price-box" style="margin-top:4px;font-size:15px;font-weight:600;color:var(--accent);display:none;">
-                Estimated Price: <span id="price"></span>
+              <div id="size-wrapper">
+                <label>Apartment Size *</label>
+                <select id="size" name="size" onchange="updatePrice()">
+                  <option>Studio</option>
+                  <option>1BR</option>
+                  <option>2BR</option>
+                  <option>3BR+</option>
+                </select>
               </div>
+            </div>
 
-              <label for="date">Preferred Date</label>
-              <input id="date" name="date" type="date">
+            <div id="price-box" style="display:none;margin-top:6px;font-weight:600;color:var(--accent)">
+              Estimated Price: <span id="price"></span>
+            </div>
 
-              <label for="phone">Phone *</label>
-              <input id="phone" name="phone" required>
+            <label>Date</label>
+            <input type="date" name="date">
 
-              <label for="email">Email *</label>
-              <input id="email" name="email" type="email" required>
+            <label>Phone *</label>
+            <input name="phone" required>
 
-              <label for="message">Message (Optional)</label>
-              <textarea id="message" name="message"></textarea>
+            <label>Email *</label>
+            <input type="email" name="email" required>
 
-              <button type="submit" class="btn" style="width:100%;margin-top:8px">
-                Get My Quote
-              </button>
-            </form>
-          </div>
+            <label>Message (optional)</label>
+            <textarea name="message"></textarea>
+
+            <button class="btn-primary" style="width:100%;margin-top:8px">Get My Quote</button>
+
+          </form>
         </div>
       </aside>
+
     </main>
 
-    <footer>
-      © <span id="year"></span> Professional Cleaning Services — NYC
-    </footer>
+    <footer>© <span id="year"></span> Professional Cleaning Services — NYC</footer>
 
   </div>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    function updatePrice() {
-      const size = document.getElementById('size').value;
-      let price = "";
+    function updatePrice(){
+      const size=document.getElementById('size').value;
+      const priceBox=document.getElementById('price-box');
+      const price=document.getElementById('price');
 
-      if (size === "Studio") price = "From $120";
-      if (size === "1BR") price = "From $160";
-      if (size === "2BR") price = "From $200";
-      if (size === "3BR+") price = "From $250";
+      let p="";
+      if(size==="Studio") p="From $120";
+      if(size==="1BR") p="From $160";
+      if(size==="2BR") p="From $200";
+      if(size==="3BR+") p="From $250";
 
-      document.getElementById('price').textContent = price;
-      document.getElementById('price-box').style.display = "block";
+      price.textContent=p;
+      priceBox.style.display="block";
     }
 
-    function handleServiceChange() {
-      const service = document.getElementById('service').value;
-      const sizeWrapper = document.getElementById('size-wrapper');
-      const priceBox = document.getElementById('price-box');
+    function handleServiceChange(){
+      const service=document.getElementById('service').value;
+      const size=document.getElementById('size-wrapper');
+      const price=document.getElementById('price-box');
 
-      const hideSize = ["Office", "BigOffice", "Other"];
-
-      if (hideSize.includes(service)) {
-        sizeWrapper.style.display = "none";
-        priceBox.style.display = "none";
+      if(service==="Office"||service==="BigOffice"||service==="Other"){
+        size.style.display="none";
+        price.style.display="none";
       } else {
-        sizeWrapper.style.display = "block";
+        size.style.display="block";
       }
     }
   </script>
 
 </body>
 </html>
+
 
