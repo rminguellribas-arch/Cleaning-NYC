@@ -456,8 +456,13 @@
       });
     }, {threshold:0.15});
 
-    revealElements.forEach(el=>observer.observe(el));
+        revealElements.forEach(el=>observer.observe(el));
+
+    // FIX: Ensure hero & cards always appear on load
+    document.querySelector('.hero').classList.add('reveal');
+    document.querySelectorAll('.card').forEach(c => c.classList.add('reveal'));
   </script>
+
 
 </body>
 </html>
